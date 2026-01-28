@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Pencarian Kata Kunci Dokumen</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+        mark {
+            background-color: yellow;
+            font-weight: bold;
+        }
+        .result {
+            margin-top: 20px;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Aplikasi Pencarian Kata Kunci pada Dokumen Digital</h2>
+
+<form method="POST" enctype="multipart/form-data">
+    <label>Upload file .txt:</label><br><br>
+    <input type="file" name="file" accept=".txt" required><br><br>
+
+    <label>Kata kunci:</label><br><br>
+    <input type="text" name="keyword" required><br><br>
+
+    <button type="submit">Cari</button>
+</form>
+
+{% if count > 0 %}
+    <h3>Jumlah Kemunculan: {{ count }}</h3>
+{% endif %}
+
+<div class="result">
+    {{ highlighted_text | safe }}
+</div>
+
+</body>
+</html>
